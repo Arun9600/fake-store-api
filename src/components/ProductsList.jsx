@@ -30,6 +30,7 @@ const ProductsList = ({ productsList, loading }) => {
                             src={products.images[0]}
                             alt={products.title}
                             className="img-fluid"
+                            loading="lazy"
                           />
                         </div>
                         <div className="product-content-area">
