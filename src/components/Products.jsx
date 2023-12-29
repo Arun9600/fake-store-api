@@ -9,6 +9,7 @@ const Products = () => {
       const productAPI = await fetch(`${BASE_URL}/products`);
       const response = await productAPI.json();
       setProductsList(response);
+      console.log(response);
       setLoading(false);
     };
     getProducts();

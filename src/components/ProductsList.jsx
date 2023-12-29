@@ -1,4 +1,11 @@
-import { Container, Box, Grid, Typography } from "@mui/material";
+import {
+  Container,
+  Box,
+  Grid,
+  Typography,
+  Card,
+  CardMedia,
+} from "@mui/material";
 
 const ProductsList = ({ productsList, loading }) => {
   return (
@@ -23,27 +30,28 @@ const ProductsList = ({ productsList, loading }) => {
                     xs={12}
                     key={products.id}
                   >
-                    <div>
-                      <div className="product-box">
-                        <div className="product-image">
-                          <img
-                            src={products.images[0]}
-                            alt={products.title}
-                            className="img-fluid"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div className="product-content-area">
-                          <Typography variant="h4">{products.title}</Typography>
-                          <Typography variant="h5">
-                            Price: Rs.{products.price}
-                          </Typography>
-                          <Typography variant="h6">
-                            Category: {products.category?.name}
-                          </Typography>
-                        </div>
-                      </div>
-                    </div>
+                    <Card className="product-box" variant="outlined">
+                      <CardMedia
+                        component="img"
+                        src={products.image}
+                        alt={products.title}
+                        style={{
+                          height: 350,
+                          width: "100%",
+                          objectFit: "cover",
+                          paddingTop: "5px",
+                        }}
+                      ></CardMedia>
+                      <Box className="product-content-area">
+                        <Typography variant="h4">{products.title}</Typography>
+                        <Typography variant="h5">
+                          Rs. {products.price}
+                        </Typography>
+                        <Typography variant="h6">
+                          Category: {products.category}
+                        </Typography>
+                      </Box>
+                    </Card>
                   </Grid>
                 ))}
           </Grid>
