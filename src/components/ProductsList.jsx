@@ -6,21 +6,31 @@ import {
   Card,
   CardMedia,
 } from "@mui/material";
-
+import { useState } from "react";
+import Search from "./Search";
 const ProductsList = ({ productsList, loading }) => {
+  const [search, setSearch] = useState("");
+  const filteredSearch = productsList.filter(
+    (product) =>
+      (product.title &&
+        product.title.toLowerCase().includes(search.toLowerCase())) ||
+      (product.category &&
+        product.category.toLowerCase().includes(search.toLowerCase()))
+  );
   return (
     <>
       <Box sx={{ padding: "40px 0" }} className="products-list">
         <Container maxWidth="true">
           <Grid container>
-            <Grid item xl={12} lg={12} md={12} xs={12}>
-              <Typography variant="h1" align="center">
-                Products List
-              </Typography>
+            <Grid item xl={8} lg={8} md={8} xs={12}>
+              <Typography variant="h1">Products List</Typography>
+            </Grid>
+            <Grid item xl={4} lg={4} md={4} xs={12}>
+              <Search search={search} setSearch={setSearch} />
             </Grid>
             {loading
               ? "fetching data. . ."
-              : productsList.map((products) => (
+              : filteredSearch.map((products) => (
                   <Grid
                     item
                     xl={3}
@@ -36,7 +46,7 @@ const ProductsList = ({ productsList, loading }) => {
                         src={products.image}
                         alt={products.title}
                         style={{
-                          height: 350,
+                          height: 325,
                           width: "100%",
                           objectFit: "cover",
                           paddingTop: "5px",

@@ -1,6 +1,7 @@
 import ProductsList from "./ProductsList";
 import { BASE_URL } from "../utils";
 import { useState, useEffect } from "react";
+import Search from "./Search";
 const Products = () => {
   const [productsList, setProductsList] = useState([]);
   const [loading, setLoading] = useState(true);
