@@ -1,10 +1,8 @@
 import ProductsList from "./ProductsList";
 import { BASE_URL } from "../utils";
 import { useState, useEffect } from "react";
-import Search from "./Search";
-const Products = () => {
+const Products = ({ loading, setLoading }) => {
   const [productsList, setProductsList] = useState([]);
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getProducts = async () => {
       const productAPI = await fetch(`${BASE_URL}/products`);
@@ -14,7 +12,7 @@ const Products = () => {
       setLoading(false);
     };
     getProducts();
-  }, []);
+  }, [setLoading]);
   return (
     <>
       <ProductsList productsList={productsList} loading={loading} />
