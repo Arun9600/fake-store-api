@@ -16,9 +16,6 @@ const ProductsList = ({ productsList, loading }) => {
   const [search, setSearch] = useState("");
   const [productsId, setProductsId] = useState("");
   const [sidebarOpen, setSideBarOpen] = useState(false);
-  const toggleDrawer = (isOpen) => {
-    setSideBarOpen(isOpen);
-  };
   const filteredSearch = productsList.filter(
     (product) =>
       (product.title &&
@@ -96,7 +93,7 @@ const ProductsList = ({ productsList, loading }) => {
                                 variant="contained"
                                 color="success"
                                 onClick={() => {
-                                  toggleDrawer(true);
+                                  setSideBarOpen(true);
                                   setProductsId(products.id);
                                 }}
                               >
@@ -116,7 +113,7 @@ const ProductsList = ({ productsList, loading }) => {
         <Drawer
           open={sidebarOpen}
           anchor="right"
-          onClose={() => toggleDrawer(false)}
+          onClose={() => setSideBarOpen(false)}
           PaperProps={{ sx: { width: "500px" } }}
         >
           <Box>
