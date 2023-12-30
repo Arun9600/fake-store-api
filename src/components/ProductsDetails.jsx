@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BASE_URL } from "../utils";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Rating } from "@mui/material";
 const ProductsDetails = ({ productsId }) => {
   const [singleProduct, setSingleProduct] = useState({});
   useEffect(() => {
@@ -23,8 +23,28 @@ const ProductsDetails = ({ productsId }) => {
               <span>Price</span>: ${singleProduct.price}
             </Typography>
             <Typography paragraph={true}>
-              <span>Product Description:</span> {singleProduct.description}
+              <span>Category:</span> {singleProduct.category}
             </Typography>
+            <Typography paragraph={true}>
+              <span>Description:</span> {singleProduct.description}
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "start",
+                justifyContent: "start",
+                fontWeight: "bold",
+              }}
+            >
+              <Rating
+                value={singleProduct.rating?.rate}
+                readOnly
+                precision={0.5}
+              />
+              <Typography variant="span">
+                ({singleProduct.rating?.count} Reviews)
+              </Typography>
+            </Box>
           </Box>
         </Box>
       }
