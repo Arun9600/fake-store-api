@@ -11,15 +11,9 @@ body {
 .timer-area {
   text-align: right;
 }
-.products-list h1 {
-  margin-bottom: 40px;
-}
 .img-fluid {
   max-width: 100%;
   height: auto;
-}
-.product-box {
-  margin-bottom: 40px;
 }
 .product-content-area {
   padding: 15px;
@@ -37,17 +31,6 @@ body {
   font-size: 16px;
   margin-top: 5px;
 }
-.search {
-  height: 40px;
-  outline: none;
-  box-shadow: none;
-  color: #000;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
 .banner-image {
   background-image: url("../src/images/shop33_slide1.jpg");
   background-repeat: no-repeat;
@@ -57,18 +40,7 @@ body {
   position: relative;
   width: 100%;
 }
-.category-box {
-  background-color: #fff;
-  border-radius: 6px;
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.category-box h3 {
-  font-size: 18px;
-  font-weight: bold;
-}
+
 .product-content-area p {
   font-weight: bold;
   margin-bottom: 10px;

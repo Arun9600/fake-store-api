@@ -32,8 +32,20 @@ const Categories = ({ loading }) => {
             {categories &&
               categories.map((category) => (
                 <Grid item xl={3} lg={3} md={6} sm={6} xs={12} key={category}>
-                  <Box className="category-box">
-                    <Typography variant="h3">
+                  <Box
+                    sx={{
+                      backgroundColor: "#fff",
+                      borderRadius: "6px",
+                      padding: "30px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Typography
+                      variant="h3"
+                      sx={{ fontSize: "18px", fontWeight: "bold" }}
+                    >
                       {category.toUpperCase()}
                     </Typography>
                   </Box>

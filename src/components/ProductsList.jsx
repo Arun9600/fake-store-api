@@ -52,7 +52,7 @@ const ProductsList = ({ productsList, loading }) => {
                         key={products.id}
                         textAlign="center"
                       >
-                        <Card className="product-box">
+                        <Card sx={{ marginBottom: "40px" }}>
                           <CardMedia
                             component="img"
                             src={products.image}
