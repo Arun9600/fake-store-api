@@ -6,11 +6,19 @@ import {
   Card,
   CardMedia,
   Rating,
+  Button,
+  Drawer,
 } from "@mui/material";
 import { useState } from "react";
 import Search from "./Search";
+import ProductsDetails from "./ProductsDetails";
 const ProductsList = ({ productsList, loading }) => {
   const [search, setSearch] = useState("");
+  const [productsId, setProductsId] = useState("");
+  const [sidebarOpen, setSideBarOpen] = useState(false);
+  const toggleDrawer = (isOpen) => {
+    setSideBarOpen(isOpen);
+  };
   const filteredSearch = productsList.filter(
     (product) =>
       (product.title &&
@@ -83,6 +91,18 @@ const ProductsList = ({ productsList, loading }) => {
                                 ({products.rating.count} Reviews)
                               </Typography>
                             </Box>
+                            <Box sx={{ marginTop: "30px" }}>
+                              <Button
+                                variant="contained"
+                                color="success"
+                                onClick={() => {
+                                  toggleDrawer(true);
+                                  setProductsId(products.id);
+                                }}
+                              >
+                                Read More
+                              </Button>
+                            </Box>
                           </Box>
                         </Card>
                       </Grid>
@@ -91,6 +111,18 @@ const ProductsList = ({ productsList, loading }) => {
             )}
           </Grid>
         </Container>
+      </Box>
+      <Box>
+        <Drawer
+          open={sidebarOpen}
+          anchor="right"
+          onClose={() => toggleDrawer(false)}
+          PaperProps={{ sx: { width: "500px" } }}
+        >
+          <Box>
+            <ProductsDetails productsId={productsId} />
+          </Box>
+        </Drawer>
       </Box>
     </>
   );
