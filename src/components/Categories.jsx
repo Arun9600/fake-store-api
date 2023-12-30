@@ -13,48 +13,46 @@ const Categories = ({ loading }) => {
     getCategory();
   }, []);
   return (
-    <>
-      <Box sx={{ padding: "40px 0", backgroundColor: "#f1f1f1" }}>
-        <Container>
-          <Grid container spacing={2}>
-            <Grid
-              item
-              xl={12}
-              lg={12}
-              md={12}
-              sm={12}
-              xs={12}
-              textAlign="center"
-              style={{ marginBottom: "10px" }}
-            >
-              <Typography variant="h2">Top Categories</Typography>
-            </Grid>
-            {categories &&
-              categories.map((category) => (
-                <Grid item xl={3} lg={3} md={6} sm={6} xs={12} key={category}>
-                  <Box
-                    sx={{
-                      backgroundColor: "#fff",
-                      borderRadius: "6px",
-                      padding: "30px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Typography
-                      variant="h3"
-                      sx={{ fontSize: "18px", fontWeight: "bold" }}
-                    >
-                      {category.toUpperCase()}
-                    </Typography>
-                  </Box>
-                </Grid>
-              ))}
+    <Box sx={{ padding: "40px 0", backgroundColor: "#f1f1f1" }}>
+      <Container>
+        <Grid container spacing={2}>
+          <Grid
+            item
+            xl={12}
+            lg={12}
+            md={12}
+            sm={12}
+            xs={12}
+            textAlign="center"
+            style={{ marginBottom: "10px" }}
+          >
+            <Typography variant="h2">Top Categories</Typography>
           </Grid>
-        </Container>
-      </Box>
-    </>
+          {categories &&
+            categories.map((category) => (
+              <Grid item xl={3} lg={3} md={6} sm={6} xs={12} key={category}>
+                <Box
+                  sx={{
+                    backgroundColor: "#fff",
+                    borderRadius: "6px",
+                    padding: "30px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography
+                    variant="h3"
+                    sx={{ fontSize: "18px", fontWeight: "bold" }}
+                  >
+                    {category.toUpperCase()}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 

@@ -4,5 +4,5 @@ Getting Started with Create React App
 Fake Store API
 <small>URL: https://fakestoreapi.com/</small>
 
-CSS Component Library Used
+CSS Component Library Used:
 <small> Material UI </small>

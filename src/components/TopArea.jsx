@@ -6,9 +6,17 @@ const TopArea = () => {
     <>
       <Box sx={{ backgroundColor: "#000", padding: "10px 0" }}>
         <Container maxWidth="true">
-          <Grid container className="top-area" spacing={2}>
+          <Grid container spacing={2}>
             <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{
+                  fontSize: "16px",
+                  margin: "0",
+                  color: "#fff",
+                  fontWeight: "normal",
+                }}
+              >
                 Hello User, <Greetings />
               </Typography>
             </Grid>
@@ -19,9 +27,17 @@ const TopArea = () => {
               md={6}
               sm={6}
               xs={6}
-              className="timer-area"
+              sx={{ textAlign: "right" }}
             >
-              <Typography variant="h6">
+              <Typography
+                variant="h6"
+                sx={{
+                  fontSize: "16px",
+                  margin: "0",
+                  color: "#fff",
+                  fontWeight: "normal",
+                }}
+              >
                 <Clock />
               </Typography>
             </Grid>

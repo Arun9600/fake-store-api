@@ -64,11 +64,29 @@ const ProductsList = ({ productsList, loading }) => {
                               paddingTop: "5px",
                             }}
                           ></CardMedia>
-                          <Box className="product-content-area">
-                            <Typography variant="h4">
+                          <Box
+                            sx={{
+                              padding: "15px",
+                              minHeight: "250px",
+                              boxShadow:
+                                "0px 4px 8px rgba(142, 142, 142, 0.16)",
+                              backgroundColor: "#fff",
+                            }}
+                          >
+                            <Typography
+                              variant="h4"
+                              sx={{
+                                fontSize: "18px",
+                                marginBottom: "20px",
+                                fontWeight: "bold",
+                              }}
+                            >
                               {products.title}
                             </Typography>
-                            <Typography paragraph={true}>
+                            <Typography
+                              paragraph={true}
+                              sx={{ fontWeight: "bold", marginBottom: "10px" }}
+                            >
                               ${products.price}
                             </Typography>
                             <Box

@@ -16,17 +16,35 @@ const ProductsDetails = ({ productsId }) => {
     <>
       {
         <Box key={singleProduct.id}>
-          <Box className="single-product-container">
-            <img src={singleProduct.image} alt={singleProduct.title} />
-            <Typography variant="h3">{singleProduct.title}</Typography>
-            <Typography paragraph={true}>
-              <span>Price</span>: ${singleProduct.price}
+          <Box sx={{ padding: "30px" }}>
+            <img
+              src={singleProduct.image}
+              alt={singleProduct.title}
+              style={{ width: "300px", height: "300px" }}
+            />
+            <Typography
+              variant="h3"
+              sx={{ fontSize: "18px", fontWeight: "bold", margin: "15px 0" }}
+            >
+              {singleProduct.title}
             </Typography>
             <Typography paragraph={true}>
-              <span>Category:</span> {singleProduct.category}
+              <span style={{ fontSize: "18px", fontWeight: "bold" }}>
+                Price
+              </span>
+              : ${singleProduct.price}
             </Typography>
             <Typography paragraph={true}>
-              <span>Description:</span> {singleProduct.description}
+              <span style={{ fontSize: "18px", fontWeight: "bold" }}>
+                Category:
+              </span>{" "}
+              {singleProduct.category}
+            </Typography>
+            <Typography paragraph={true}>
+              <span style={{ fontSize: "18px", fontWeight: "bold" }}>
+                Description:
+              </span>{" "}
+              {singleProduct.description}
             </Typography>
             <Box
               sx={{
