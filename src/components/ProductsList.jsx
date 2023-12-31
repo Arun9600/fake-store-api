@@ -13,7 +13,15 @@ import Search from "./Search";
 import ProductsDetails from "./ProductsDetails";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-const ProductsList = ({ productsList, loading }) => {
+import Cart from "./Cart";
+const ProductsList = ({
+  productsList,
+  loading,
+  cartArea,
+  setCartArea,
+  cart,
+  setCart,
+}) => {
   const [search, setSearch] = useState("");
   const [productsId, setProductsId] = useState("");
   const [sidebarOpen, setSideBarOpen] = useState(false);
@@ -129,8 +137,14 @@ const ProductsList = ({ productsList, loading }) => {
                                   <IconButton
                                     color="primary"
                                     aria-label="add to shopping cart"
+                                    onClick={() => {
+                                      setCart(products.id);
+                                      setCartArea(true);
+                                    }}
                                   >
-                                    <AddShoppingCartIcon />
+                                    <AddShoppingCartIcon
+                                      sx={{ color: "#2e7d32" }}
+                                    />
                                   </IconButton>
                                 </Grid>
                               </Grid>
@@ -156,6 +170,7 @@ const ProductsList = ({ productsList, loading }) => {
           </Box>
         </Drawer>
       </Box>
+      <Cart cartArea={cartArea} setCartArea={setCartArea} cart={cart} />
     </>
   );
 };
