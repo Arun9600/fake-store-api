@@ -5,13 +5,14 @@ import {
   Typography,
   Card,
   CardMedia,
-  Rating,
   Button,
   Drawer,
 } from "@mui/material";
 import { useState } from "react";
 import Search from "./Search";
 import ProductsDetails from "./ProductsDetails";
+import IconButton from "@mui/material/IconButton";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 const ProductsList = ({ productsList, loading }) => {
   const [search, setSearch] = useState("");
   const [productsId, setProductsId] = useState("");
@@ -50,9 +51,9 @@ const ProductsList = ({ productsList, loading }) => {
                         sm={6}
                         xs={12}
                         key={products.id}
-                        textAlign="center"
+                        textAlign="left"
                       >
-                        <Card sx={{ marginBottom: "40px" }}>
+                        <Card sx={{ marginBottom: "40px", boxShadow: "0" }}>
                           <CardMedia
                             component="img"
                             src={products.image}
@@ -67,56 +68,72 @@ const ProductsList = ({ productsList, loading }) => {
                           <Box
                             sx={{
                               padding: "15px",
-                              minHeight: "250px",
-                              boxShadow:
-                                "0px 4px 8px rgba(142, 142, 142, 0.16)",
+                              minHeight: "150px",
                               backgroundColor: "#fff",
                             }}
                           >
                             <Typography
+                              variant="h5"
+                              sx={{
+                                fontSize: "14px",
+                                color: "#777",
+                                marginBottom: "5px",
+                              }}
+                            >
+                              {products.category.toUpperCase()}
+                            </Typography>
+                            <Typography
                               variant="h4"
                               sx={{
-                                fontSize: "18px",
-                                marginBottom: "20px",
-                                fontWeight: "bold",
+                                fontSize: "16px",
+                                marginBottom: "8px",
+                                fontWeight: "normal",
+                                color: "#334862",
                               }}
                             >
                               {products.title}
                             </Typography>
                             <Typography
                               paragraph={true}
-                              sx={{ fontWeight: "bold", marginBottom: "10px" }}
+                              sx={{
+                                fontWeight: "bold",
+                                marginBottom: "10px",
+                                color: "#111",
+                              }}
                             >
                               ${products.price}
                             </Typography>
-                            <Box
-                              sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                fontWeight: "bold",
-                              }}
-                            >
-                              <Rating
-                                value={products.rating.rate}
-                                readOnly
-                                precision={0.5}
-                              />
-                              <Typography variant="span">
-                                ({products.rating.count} Reviews)
-                              </Typography>
-                            </Box>
-                            <Box sx={{ marginTop: "30px" }}>
-                              <Button
-                                variant="contained"
-                                color="success"
-                                onClick={() => {
-                                  setSideBarOpen(true);
-                                  setProductsId(products.id);
-                                }}
-                              >
-                                Read More
-                              </Button>
+                            <Box sx={{ marginTop: "20px" }}>
+                              <Grid container>
+                                <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
+                                  <Button
+                                    variant="outlined"
+                                    color="success"
+                                    onClick={() => {
+                                      setSideBarOpen(true);
+                                      setProductsId(products.id);
+                                    }}
+                                  >
+                                    Quick View
+                                  </Button>
+                                </Grid>
+                                <Grid
+                                  item
+                                  xl={6}
+                                  lg={6}
+                                  md={6}
+                                  sm={6}
+                                  xs={6}
+                                  textAlign="right"
+                                >
+                                  <IconButton
+                                    color="primary"
+                                    aria-label="add to shopping cart"
+                                  >
+                                    <AddShoppingCartIcon />
+                                  </IconButton>
+                                </Grid>
+                              </Grid>
                             </Box>
                           </Box>
                         </Card>
