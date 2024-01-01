@@ -1,4 +1,4 @@
-import { Box, Drawer, Typography } from "@mui/material";
+import { Box, Drawer, Typography, Grid } from "@mui/material";
 const Cart = ({ cartArea, setCartArea, cart }) => {
   return (
     <Box>
@@ -26,8 +26,25 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
             cart &&
             cart.map((item) => (
               <Box key={item.id}>
-                {item.title} - ${item.price}
-                <Box>Quantity: {item.quantity}</Box>
+                <Grid container sx={{ display: "flex", alignItems: "center" }}>
+                  <Grid item xl={4}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      style={{ width: "150px", height: "auto" }}
+                    />
+                  </Grid>
+                  <Grid item xl={8}>
+                    <Box>
+                      <span style={{ fontWeight: "bold" }}>Product Name:</span>{" "}
+                      {item.title}
+                    </Box>
+                    <Box>
+                      <span style={{ fontWeight: "bold" }}>Product Price:</span>{" "}
+                      ${item.price}
+                    </Box>
+                  </Grid>
+                </Grid>
               </Box>
             ))
           )}
