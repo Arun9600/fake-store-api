@@ -138,7 +138,6 @@ const ProductsList = ({
                                     color="primary"
                                     aria-label="add to shopping cart"
                                     onClick={() => {
-                                      setCart(products.id);
                                       setCartArea(true);
                                     }}
                                   >
