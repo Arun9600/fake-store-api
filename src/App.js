@@ -7,7 +7,6 @@ import HomeBanner from "./components/HomeBanner";
 import Products from "./components/Products";
 function App() {
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState([]);
   const [cartArea, setCartArea] = useState(false);
   const theme = createTheme({
     typography: {
@@ -41,14 +40,12 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <div className="App">
-          <TopArea cartArea={cartArea} setCartArea={setCartArea} cart={cart} />
+          <TopArea cartArea={cartArea} setCartArea={setCartArea} />
           <HomeBanner />
           <Categories loading={loading} />
           <Products
             loading={loading}
             setLoading={setLoading}
-            cart={cart}
-            setCart={setCart}
             cartArea={cartArea}
             setCartArea={setCartArea}
           />

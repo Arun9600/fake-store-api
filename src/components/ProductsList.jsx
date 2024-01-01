@@ -14,16 +14,10 @@ import ProductsDetails from "./ProductsDetails";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Cart from "./Cart";
-const ProductsList = ({
-  productsList,
-  loading,
-  cartArea,
-  setCartArea,
-  cart,
-  setCart,
-}) => {
+const ProductsList = ({ productsList, loading, cartArea, setCartArea }) => {
   const [search, setSearch] = useState("");
   const [productsId, setProductsId] = useState("");
+  const [cart, setCart] = useState([]);
   const [sidebarOpen, setSideBarOpen] = useState(false);
   const filteredSearch = productsList.filter(
     (product) =>
@@ -33,6 +27,20 @@ const ProductsList = ({
         product.category.toLowerCase().includes(search.toLowerCase())) ||
       (product.price && product.price.toString().includes(search.toString()))
   );
+
+  const addToCart = (products) => {
+    const prevCart = cart.find((item) => item.id === products.id);
+    if (prevCart) {
+      const newCart = cart.map((item) =>
+        item.id === products.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+      setCart(newCart);
+    } else {
+      setCart([...cart, { ...products, quantity: 1 }]);
+    }
+  };
   return (
     <>
       <Box sx={{ padding: "40px 0" }} className="products-list">
@@ -139,6 +147,7 @@ const ProductsList = ({
                                     aria-label="add to shopping cart"
                                     onClick={() => {
                                       setCartArea(true);
+                                      addToCart(products);
                                     }}
                                   >
                                     <AddShoppingCartIcon

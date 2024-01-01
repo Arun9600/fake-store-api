@@ -23,7 +23,13 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
               No Products in the cart
             </Typography>
           ) : (
-            ""
+            cart &&
+            cart.map((item) => (
+              <Box key={item.id}>
+                {item.title} - ${item.price}
+                <Box>Quantity: {item.quantity}</Box>
+              </Box>
+            ))
           )}
         </Box>
       </Drawer>
