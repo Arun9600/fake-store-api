@@ -41,7 +41,7 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
                 }}
               >
                 <Grid container sx={{ display: "flex", alignItems: "center" }}>
-                  <Grid item xl={5}>
+                  <Grid item xl={5} lg={5} md={4} sm={4} xs={12}>
                     <img
                       src={item.image}
                       alt={item.title}
@@ -53,7 +53,7 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
                       }}
                     />
                   </Grid>
-                  <Grid item xl={7}>
+                  <Grid item xl={7} lg={7} md={8} sm={8} xs={12}>
                     <Box sx={{ marginBottom: "10px" }}>
                       <span
                         style={{
@@ -68,7 +68,7 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
                       <span
                         style={{
                           fontWeight: "bold",
-                          fontSize: "16px",
+                          fontSize: "18px",
                           color: "#334862",
                         }}
                       >
@@ -86,8 +86,7 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
             <Box
               sx={{
                 textIndent: "25px",
-                display: "flex",
-                alignItems: "flex-end",
+                marginTop: "30px",
               }}
             >
               <Grid container>
@@ -108,7 +107,7 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
                     variant="h4"
                     sx={{ fontSize: "20px", fontWeight: "bold" }}
                   >
-                    ${subTotal && subTotal.toFixed(2)}
+                    ${subTotal && Math.round(subTotal)}
                   </Typography>
                 </Grid>
               </Grid>
