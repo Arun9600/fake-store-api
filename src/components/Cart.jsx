@@ -100,7 +100,7 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
                       textAlign: "right",
                     }}
                   >
-                    Sub Total:
+                    Total:
                   </Typography>
                 </Grid>
                 <Grid item xl={6}>
@@ -108,7 +108,7 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
                     variant="h4"
                     sx={{ fontSize: "20px", fontWeight: "bold" }}
                   >
-                    ${subTotal}
+                    ${subTotal && subTotal.toFixed(2)}
                   </Typography>
                 </Grid>
               </Grid>
