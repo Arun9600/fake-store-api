@@ -1,7 +1,12 @@
 import { Box, Drawer, Typography, Grid } from "@mui/material";
-const Cart = ({ cartArea, setCartArea, cart }) => {
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+const Cart = ({ cartArea, setCartArea, cart, setCart }) => {
   const subTotal =
     cart && cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
+  const deleteProductInCart = (item) => {
+    setCart(cart.filter((items) => items !== item));
+  };
   return (
     <Box>
       <Drawer
@@ -27,7 +32,7 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
               paragraph={true}
               sx={{ marginTop: "30px", fontSize: "18px", textIndent: "25px" }}
             >
-              No Products in the cart
+              No Products in your cart
             </Typography>
           ) : (
             cart &&
@@ -53,7 +58,7 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
                       }}
                     />
                   </Grid>
-                  <Grid item xl={7} lg={7} md={8} sm={8} xs={12}>
+                  <Grid item xl={6} lg={6} md={7} sm={7} xs={12}>
                     <Box sx={{ marginBottom: "10px" }}>
                       <span
                         style={{
@@ -72,9 +77,19 @@ const Cart = ({ cartArea, setCartArea, cart }) => {
                           color: "#334862",
                         }}
                       >
-                        ${item.quantity * item.price}
+                        Price: {item.quantity} x ${item.price} = $
+                        {item.quantity * item.price}
                       </span>
                     </Box>
+                  </Grid>
+                  <Grid item xl={1} lg={1} md={1} sm={1} xs={12}>
+                    <IconButton
+                      color="primary"
+                      aria-label="delete"
+                      onClick={() => deleteProductInCart(item)}
+                    >
+                      <DeleteIcon sx={{ color: "#000" }} />
+                    </IconButton>
                   </Grid>
                 </Grid>
               </Box>

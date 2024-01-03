@@ -3,7 +3,6 @@ import "./App.css";
 import { useState } from "react";
 import TopArea from "./components/TopArea";
 import Categories from "./components/Categories";
-import HomeBanner from "./components/HomeBanner";
 import Products from "./components/Products";
 function App() {
   const [loading, setLoading] = useState(true);
@@ -41,7 +40,6 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className="App">
           <TopArea cartArea={cartArea} setCartArea={setCartArea} />
-          <HomeBanner />
           <Categories loading={loading} />
           <Products
             loading={loading}

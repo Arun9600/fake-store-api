@@ -178,7 +178,12 @@ const ProductsList = ({ productsList, loading, cartArea, setCartArea }) => {
           </Box>
         </Drawer>
       </Box>
-      <Cart cartArea={cartArea} setCartArea={setCartArea} cart={cart} />
+      <Cart
+        cartArea={cartArea}
+        setCartArea={setCartArea}
+        cart={cart}
+        setCart={setCart}
+      />
     </>
   );
 };
