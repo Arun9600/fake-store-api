@@ -7,6 +7,8 @@ import {
   CardMedia,
   Button,
   Drawer,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { useState } from "react";
 import Search from "./Search";
@@ -41,6 +43,11 @@ const ProductsList = ({ productsList, loading, cartArea, setCartArea }) => {
       setCart([...cart, { ...products, quantity: 1 }]);
     }
   };
+
+  const theme = useTheme();
+  const isLarge = useMediaQuery(theme.breakpoints.up("sm"));
+  const sideBarWidth = isLarge ? "500px" : "320px";
+
   return (
     <>
       <Box sx={{ padding: "40px 0" }} className="products-list">
@@ -171,7 +178,7 @@ const ProductsList = ({ productsList, loading, cartArea, setCartArea }) => {
           open={sidebarOpen}
           anchor="right"
           onClose={() => setSideBarOpen(false)}
-          PaperProps={{ sx: { width: "500px" } }}
+          PaperProps={{ sx: { width: `${sideBarWidth}` } }}
         >
           <Box>
             <ProductsDetails productsId={productsId} />

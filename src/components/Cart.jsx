@@ -1,4 +1,11 @@
-import { Box, Drawer, Typography, Grid } from "@mui/material";
+import {
+  Box,
+  Drawer,
+  Typography,
+  Grid,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 const Cart = ({ cartArea, setCartArea, cart, setCart }) => {
@@ -7,13 +14,16 @@ const Cart = ({ cartArea, setCartArea, cart, setCart }) => {
   const deleteProductInCart = (item) => {
     setCart(cart.filter((items) => items !== item));
   };
+  const theme = useTheme();
+  const isLarge = useMediaQuery(theme.breakpoints.up("sm"));
+  const sideBarWidth = isLarge ? "500px" : "320px";
   return (
     <Box>
       <Drawer
         open={cartArea}
         anchor="right"
         onClose={() => setCartArea(false)}
-        PaperProps={{ sx: { width: "500px" } }}
+        PaperProps={{ sx: { width: `${sideBarWidth}` } }}
       >
         <Box sx={{ padding: "30px 0px" }}>
           <Typography
