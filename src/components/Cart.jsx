@@ -8,7 +8,16 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-const Cart = ({ cartArea, setCartArea, cart, setCart }) => {
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+const Cart = ({
+  cartArea,
+  setCartArea,
+  cart,
+  setCart,
+  IncreaseQty,
+  DecreaseQty,
+}) => {
   const subTotal =
     cart && cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
   const deleteProductInCart = (item) => {
@@ -69,7 +78,7 @@ const Cart = ({ cartArea, setCartArea, cart, setCart }) => {
                     />
                   </Grid>
                   <Grid item xl={6} lg={6} md={7} sm={7} xs={12}>
-                    <Box sx={{ marginBottom: "10px" }}>
+                    <Box sx={{ marginBottom: "5px" }}>
                       <span
                         style={{
                           fontWeight: "bold",
@@ -78,6 +87,38 @@ const Cart = ({ cartArea, setCartArea, cart, setCart }) => {
                       >
                         {item.quantity} x {item.title}
                       </span>
+                    </Box>
+                    <Box>
+                      <IconButton
+                        color="primary"
+                        aria-label="add"
+                        onClick={() => IncreaseQty(item)}
+                      >
+                        <AddIcon
+                          sx={{
+                            color: "#000",
+                            padding: "2px",
+                            border: "1px solid #000",
+                            borderRadius: "50%",
+                            fontSize: "14px",
+                          }}
+                        />
+                      </IconButton>
+                      <IconButton
+                        color="primary"
+                        aria-label="remove"
+                        onClick={() => DecreaseQty(item)}
+                      >
+                        <RemoveIcon
+                          sx={{
+                            color: "#000",
+                            padding: "2px",
+                            border: "1px solid #000",
+                            borderRadius: "50%",
+                            fontSize: "14px",
+                          }}
+                        />
+                      </IconButton>
                     </Box>
                     <Box>
                       <span

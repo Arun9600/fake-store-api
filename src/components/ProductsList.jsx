@@ -44,6 +44,22 @@ const ProductsList = ({ productsList, loading, cartArea, setCartArea }) => {
     }
   };
 
+  const IncreaseQty = (products) => {
+    const increase = cart.map((item) =>
+      item.id === products.id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setCart(increase);
+  };
+
+  const DecreaseQty = (products) => {
+    const decrease = cart.map((item) =>
+      item.id === products.id && products.quantity > 1
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
+    );
+    setCart(decrease.filter((item) => item.quantity > 0));
+  };
+
   const theme = useTheme();
   const isLarge = useMediaQuery(theme.breakpoints.up("sm"));
   const sideBarWidth = isLarge ? "500px" : "320px";
@@ -190,6 +206,8 @@ const ProductsList = ({ productsList, loading, cartArea, setCartArea }) => {
         setCartArea={setCartArea}
         cart={cart}
         setCart={setCart}
+        IncreaseQty={IncreaseQty}
+        DecreaseQty={DecreaseQty}
       />
     </>
   );
