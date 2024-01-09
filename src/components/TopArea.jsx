@@ -3,7 +3,7 @@ import Greetings from "./Greetings";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Cart from "./Cart";
-const TopArea = ({ setCartArea }) => {
+const TopArea = ({ setCartArea, cart, setCart }) => {
   return (
     <>
       <Box sx={{ backgroundColor: "#000", padding: "10px 0" }}>
@@ -48,7 +48,7 @@ const TopArea = ({ setCartArea }) => {
           </Grid>
         </Container>
       </Box>
-      <Cart />
+      <Cart cart={cart} setCart={setCart} />
     </>
   );
 };

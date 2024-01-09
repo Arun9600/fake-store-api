@@ -11,10 +11,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 const Cart = ({
-  cartArea,
-  setCartArea,
   cart,
   setCart,
+  cartArea,
+  setCartArea,
   IncreaseQty,
   DecreaseQty,
 }) => {
@@ -23,6 +23,24 @@ const Cart = ({
   const deleteProductInCart = (item) => {
     setCart(cart.filter((items) => items !== item));
   };
+
+  // useEffect(() => {
+  //   localStorage.setItem("cart", JSON.stringify(cart));
+  //   const storedValue = localStorage.getItem("cart");
+  //   let localData;
+  //   if (
+  //     storedValue !== undefined &&
+  //     storedValue !== null &&
+  //     storedValue !== "" &&
+  //     storedValue !== "undefined"
+  //   ) {
+  //     localData = JSON.parse(storedValue);
+  //   } else {
+  //     localData = [];
+  //   }
+  //   setCart(localData);
+  // }, [cart]);
+
   const theme = useTheme();
   const isLarge = useMediaQuery(theme.breakpoints.up("sm"));
   const sideBarWidth = isLarge ? "500px" : "320px";

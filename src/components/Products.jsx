@@ -1,7 +1,14 @@
 import ProductsList from "./ProductsList";
 import { BASE_URL } from "../utils";
 import { useState, useEffect } from "react";
-const Products = ({ loading, setLoading, cartArea, setCartArea }) => {
+const Products = ({
+  loading,
+  setLoading,
+  cartArea,
+  setCartArea,
+  cart,
+  setCart,
+}) => {
   const [productsList, setProductsList] = useState([]);
   useEffect(() => {
     const getProducts = async () => {
@@ -20,6 +27,8 @@ const Products = ({ loading, setLoading, cartArea, setCartArea }) => {
         loading={loading}
         cartArea={cartArea}
         setCartArea={setCartArea}
+        cart={cart}
+        setCart={setCart}
       />
     </>
   );

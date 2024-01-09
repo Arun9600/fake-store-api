@@ -16,10 +16,16 @@ import ProductsDetails from "./ProductsDetails";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Cart from "./Cart";
-const ProductsList = ({ productsList, loading, cartArea, setCartArea }) => {
+const ProductsList = ({
+  productsList,
+  loading,
+  cartArea,
+  setCartArea,
+  cart,
+  setCart,
+}) => {
   const [search, setSearch] = useState("");
   const [productsId, setProductsId] = useState("");
-  const [cart, setCart] = useState([]);
   const [sidebarOpen, setSideBarOpen] = useState(false);
   const filteredSearch = productsList.filter(
     (product) =>
@@ -63,7 +69,6 @@ const ProductsList = ({ productsList, loading, cartArea, setCartArea }) => {
   const theme = useTheme();
   const isLarge = useMediaQuery(theme.breakpoints.up("sm"));
   const sideBarWidth = isLarge ? "500px" : "320px";
-
   return (
     <>
       <Box sx={{ padding: "40px 0" }} className="products-list">
@@ -202,10 +207,10 @@ const ProductsList = ({ productsList, loading, cartArea, setCartArea }) => {
         </Drawer>
       </Box>
       <Cart
-        cartArea={cartArea}
-        setCartArea={setCartArea}
         cart={cart}
         setCart={setCart}
+        cartArea={cartArea}
+        setCartArea={setCartArea}
         IncreaseQty={IncreaseQty}
         DecreaseQty={DecreaseQty}
       />
