@@ -6,3 +6,6 @@ Fake Store API
 
 CSS Component Library Used:
 <small> Material UI </small>
+
+Concepts Used:
+<small>useState, useEffect Hooks, Props, Props Drilling, Events </snall>
